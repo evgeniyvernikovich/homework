@@ -16,7 +16,7 @@ class Author(models.Model):
 
 class Serie(models.Model):
     name = models.CharField(
-        max_length=30,
+        max_length=80,
         verbose_name='Серия')
     description = models.TextField(verbose_name='Описание',
         blank=True,
@@ -28,7 +28,7 @@ class Serie(models.Model):
 
 class Genre(models.Model):
     name = models.CharField(
-        max_length=30,
+        max_length=50,
         verbose_name='Жанр')
     description = models.TextField(verbose_name='Описание',
         blank=True,
