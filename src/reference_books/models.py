@@ -12,7 +12,13 @@ class Author(models.Model):
     )
 
     def __str__(self):
-        return self.name    
+        return self.name
+
+    def __repr__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return f"/show-authors-list/{self.pk}/"      
 
 class Serie(models.Model):
     name = models.CharField(
@@ -26,6 +32,12 @@ class Serie(models.Model):
     def __str__(self):
         return self.name
 
+    def __repr__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return f"/show-series-list/{self.pk}/" 
+
 class Genre(models.Model):
     name = models.CharField(
         max_length=50,
@@ -36,7 +48,13 @@ class Genre(models.Model):
     )
 
     def __str__(self):
-        return self.name   
+        return self.name
+
+    def __repr__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return f"/show-genres-list/{self.pk}/"       
         
 class Publishing(models.Model):
     name = models.CharField(
@@ -48,4 +66,10 @@ class Publishing(models.Model):
     )
 
     def __str__(self):
-        return self.name   
+        return self.name 
+
+    def __repr__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return f"/show-publishing-list/{self.pk}/"  
