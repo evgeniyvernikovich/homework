@@ -25,7 +25,7 @@ class ShowAuthor(generic.DetailView):
 
 class ShowAuthors(generic.ListView):
     model = models.Author
-    template_name = 'reference_books/List.html'   
+    template_name = 'reference_books/List_author.html'   
 
 class CreateSerie(generic.CreateView):
     model = models.Serie
@@ -47,7 +47,7 @@ class ShowSerie(generic.DetailView):
 
 class ShowSeries(generic.ListView):
     model = models.Serie
-    template_name = 'reference_books/List.html'   
+    template_name = 'reference_books/List_serie.html'   
 
 class CreateGenre(generic.CreateView):
     model = models.Serie
@@ -69,7 +69,7 @@ class ShowGenre(generic.DetailView):
 
 class ShowGenres(generic.ListView):
     model = models.Serie
-    template_name = 'reference_books/List.html' 
+    template_name = 'reference_books/List_genre.html' 
 
 class CreatePublishing(generic.CreateView):
     model = models.Publishing
@@ -91,4 +91,4 @@ class ShowPublishing(generic.DetailView):
 
 class ShowPublishings(generic.ListView):
     model = models.Publishing
-    template_name = 'reference_books/List.html'
+    template_name = 'reference_books/List_publishing.html'
