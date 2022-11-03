@@ -8,13 +8,23 @@ from django.views import generic
 class CreateAuthor(generic.CreateView):
     model = models.Author
     form_class = forms.AuthorForm
-    template_name = 'reference_books/create.html'
+    template_name = 'reference_books/create_update.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['operation_name'] = 'Create'
+        return context
 
 class UpdateAuthor(generic.UpdateView):
     model = models.Author
     form_class = forms.AuthorForm
-    template_name = 'reference_books/update.html'
+    template_name = 'reference_books/create_update.html'
 
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['operation_name'] = 'Update'
+        return context
+   
 class DeleteAuthor(generic.DeleteView):
     model = models.Author
     template_name = 'reference_books/delete.html'
@@ -25,17 +35,27 @@ class ShowAuthor(generic.DetailView):
 
 class ShowAuthors(generic.ListView):
     model = models.Author
-    template_name = 'reference_books/list_author.html'   
+    template_name = 'reference_books/list_author.html'  
 
 class CreateSerie(generic.CreateView):
     model = models.Serie
     form_class = forms.SerieForm
-    template_name = 'reference_books/create.html'
+    template_name = 'reference_books/create_update.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['operation_name'] = 'Create'
+        return context
     
 class UpdateSerie(generic.UpdateView):
     model = models.Serie
     form_class = forms.SerieForm
-    template_name = 'reference_books/update.html'
+    template_name = 'reference_books/create_update.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['operation_name'] = 'Update'
+        return context
 
 class DeleteSerie(generic.DeleteView):
     model = models.Serie
@@ -52,12 +72,22 @@ class ShowSeries(generic.ListView):
 class CreateGenre(generic.CreateView):
     model = models.Serie
     form_class = forms.SerieForm
-    template_name = 'reference_books/create.html'
+    template_name = 'reference_books/create_update.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['operation_name'] = 'Create'
+        return context
     
 class UpdateGenre(generic.UpdateView):
     model = models.Serie
     form_class = forms.SerieForm
-    template_name = 'reference_books/update.html'
+    template_name = 'reference_books/create_update.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['operation_name'] = 'Update'
+        return context
 
 class DeleteGenre(generic.DeleteView):
     model = models.Serie
@@ -74,12 +104,22 @@ class ShowGenres(generic.ListView):
 class CreatePublishing(generic.CreateView):
     model = models.Publishing
     form_class = forms.PublishingForm
-    template_name = 'reference_books/create.html'
+    template_name = 'reference_books/create_update.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['operation_name'] = 'Create'
+        return context
     
 class UpdatePublishing(generic.UpdateView):
     model = models.Publishing
     form_class = forms.PublishingForm
-    template_name = 'reference_books/update.html'
+    template_name = 'reference_books/create_update.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['operation_name'] = 'Update'
+        return context
 
 class DeletePublishing(generic.DeleteView):
     model = models.Publishing

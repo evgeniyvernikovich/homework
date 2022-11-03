@@ -14,35 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from hello_world.views import hello_world
-from reference_books import views as ref_views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello-world/', hello_world),
-    path('show-authors-list/<int:pk>/', ref_views.ShowAuthors.as_view()),
-    path('show-author-create/', ref_views.CreateAuthor.as_view()),
-    path('show-author-update/<int:pk>/', ref_views.UpdateAuthor.as_view()),
-    path('show-author-delete/<int:pk>/', ref_views.DeleteAuthor.as_view()),
-    path('show-author-detail/<int:pk>/', ref_views.ShowAuthor.as_view()),
-    path('show-serie-create/', ref_views.CreateSerie.as_view()),
-    path('show-serie-update/<int:pk>/', ref_views.UpdateSerie.as_view()),
-    path('show-serie-delete/<int:pk>/', ref_views.DeleteSerie.as_view()),
-    path('show-serie-detail/<int:pk>/', ref_views.ShowSerie.as_view()),
-    path('show-series-list/<int:pk>/', ref_views.ShowSeries.as_view()),
-    path('show-genre-create/', ref_views.CreateGenre.as_view()),
-    path('show-genre-update/<int:pk>/', ref_views.UpdateGenre.as_view()),
-    path('show-genre-delete/<int:pk>/', ref_views.DeleteGenre.as_view()),
-    path('show-genre-detail/<int:pk>/', ref_views.ShowGenre.as_view()),
-    path('show-genres-list/<int:pk>/', ref_views.ShowGenres.as_view()),
-        path('show-publishing-create/', ref_views.CreatePublishing.as_view()),
-    path('show-publishing-update/<int:pk>/', ref_views.UpdatePublishing.as_view()),
-    path('show-publishing-delete/<int:pk>/', ref_views.DeletePublishing.as_view()),
-    path('show-publishing-detail/<int:pk>/', ref_views.ShowPublishing.as_view()),
-    path('show-publishings-list/<int:pk>/', ref_views.ShowPublishings.as_view()),
-
-
-
+    path('refs/', include('reference_books.urls', namespace="reference_books"))
 ]
