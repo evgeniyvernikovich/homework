@@ -4,7 +4,7 @@ from . import models
 class AuthorForm(forms.ModelForm):
     class Meta:
         model = models.Author
-        fields = ['name', 'start_date', 'description']
+        fields = ['name', 'cover', 'start_date', 'description']
 
 class SerieForm(forms.ModelForm):
     class Meta:

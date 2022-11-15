@@ -15,11 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from hello_world.views import hello_world
+from django.conf import settings
+from django.conf.urls.static import static
+from home_page.views import HomePage
+from django.contrib.auth import views as auth_views
+
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('hello-world/', hello_world),
-    path('refs/', include('reference_books.urls', namespace="reference_books"))
+    path('login/', auth_views.LoginView.as_view(template_name='home_page/login.html'), name='login'), 
+    path('refs/', include('reference_books.urls', namespace="reference_books")),
+    path('', HomePage.as_view(), name='home-page'),
+    path('book/', include('book.urls', namespace='books')),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

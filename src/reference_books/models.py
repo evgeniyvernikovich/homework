@@ -6,6 +6,11 @@ class Author(models.Model):
     name = models.CharField(
         max_length=50,
         verbose_name='Авторы книг')
+
+    cover = models.ImageField(
+        verbose_name='Author cover',
+        upload_to = 'uploads/%Y/%m/%d/'
+    )
     start_date = models.DateField(verbose_name='Дата записи')
     description = models.TextField(verbose_name='Описание',
         blank=True,
