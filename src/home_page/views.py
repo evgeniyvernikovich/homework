@@ -9,4 +9,8 @@ def user_login(request):
 
 class HomePage(generic.TemplateView):
     template_name = 'home_page/home_page.html'
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['book1'] = 'Create'
+        return context
     
