@@ -6,17 +6,47 @@
 
 {% block body %}
     <h1>List books</h1>
-    <table class="table table-striped-columns">
-        {% for obj in object_list %}
-        <tr>
-            <td><a href="{% url 'reference_books:sh-aut-update' pk=obj.pk %}"  >{{ obj.pk }} </a></td>
-            <td>{{ obj.name }} {{ obj.start_date }} </td>
-            <td><a href="{% url 'reference_books:sh-aut-delete' pk=obj.pk %}">DELETE</i></a></td>
-        </tr>
-        {% endfor %}
-    </table>
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+{% for object in object_list %}
+
+<div class="card" style="width: 28%; margin: 10px 20px; padding: 0 20px;">
+    <img src="{{ object.cover.url }}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ object.name }}  </h5>
+      <p class="card-text">Автор:
+        {% for auth in object.author_book.all %} 
+          {{ auth.name }}
+        {% endfor %}</p>
+      <p class="card-text">Год издания: {{ object.year_of_publishing }}</p>
+      <p class="card-text">Издательство: {{ object.publishing_book }}</p>
+      <p class="card-text">Переплет: {{ object.binding_book }} </p>
+      <p class="card-text">Кол-во страниц: {{ object.number_of_pages }} </p>
+      <p class="card-text">Цена: {{ object.prise }} руб</p>
+      <a href="#" class="btn btn-primary">Заказать</a>
+      {% if perms.book.add_book %}
+        <a href="{% url 'book:sh-book-delete' pk=object.pk %}" class="btn btn-primary">Del</a>
+        <a href="{% url 'book:sh-book-update' pk=object.pk %}" class="btn btn-primary">Update</a>
+      {% endif %}
+    </div>
+</div>
+
+
+
+{% endfor %}
+</div>
+    
 {% endblock %}   
 
 {% block footer %}
     footer
 {% endblock %}
+
+
+
+
+
+                <tr>
+                    <td><a href="{% url 'reference_books:sh-aut-update' pk=obj.pk %}"  >{{ obj.pk }} </a></td>
+                    <td>{{ obj.name }} {{ obj.start_date }} </td>
+                    <td><a href="{% url 'reference_books:sh-aut-delete' pk=obj.pk %}">DELETE</i></a></td>
+                </tr> -->

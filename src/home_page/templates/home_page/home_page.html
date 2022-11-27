@@ -6,37 +6,54 @@
 
 {% block body %}
     <h1>Последние новинки</h1>
-    <div class="card-group">
-      <div class="card">
+    <div class="card-group" style="display: flex; flex-wrap: wrap; justify-content: space-between; ">
+      <div class="card" style="margin: 10px 20px; padding: 10px 20px;border: 1px solid rgb(175, 170, 170); border-radius: 0;">
         <img src="{{ book1.cover.url }}" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">{{ book1.name }}</h5>
-          <p class="card-text"></p>
-          <a href="#" class="btn btn-primary">Подробнее</a>
+          <p class="card-text">            
+            {% for auth in book1.author_book.all %} 
+              {{ auth.name }}
+            {% endfor %}
+          </p>
+          <a href="book/show-book-detail/{{ book1.pk }}" class="btn btn-primary">Подробнее</a>
         </div>
       </div>
-      <div class="card">
+      <div class="card" style="margin: 10px 20px; padding: 10px  20px; border: 1px solid rgb(175, 170, 170); border-radius: 0;">
         <img src="{{ book2.cover.url }}" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">{{ book2.name }}</h5>
-          <p class="card-text"></p>
-          <a href="#" class="btn btn-primary">Подробнее</a>
+          <p class="card-text">
+            {% for auth in book2.author_book.all %} 
+              {{ auth.name }}
+            {% endfor %}
+          </p>
+          <a href="book/show-book-detail/{{ book2.pk }}" class="btn btn-primary">Подробнее</a>
         </div>
       </div>
-      <div class="card">
+      <div class="card" style="margin: 10px 20px; padding: 10px 20px; border: 1px solid rgb(175, 170, 170); border-radius: 0;">
         <img src="{{ book3.cover.url }}" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">{{ book3.name }}</h5>
-          <p class="card-text"></p>
-          <a href="#" class="btn btn-primary">Подробнее</a>
+          <p class="card-text">
+            {% for auth in book3.author_book.all %} 
+              {{ auth.name }}
+            {% endfor %}
+          </p>
+          <a href="book/show-book-detail/{{ book3.pk }}" class="btn btn-primary">Подробнее</a>
         </div>
       </div>
-      <div class="card">
+      <div class="card" style="margin: 10px 20px; padding: 10px 20px; border: 1px solid rgb(175, 170, 170); border-radius: 0;">
         <img src="{{ book4.cover.url }}" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">{{ book4.name }}</h5>
+          <p class="card-text">
+            {% for auth in book4.author_book.all %} 
+              {{ auth.name }}
+            {% endfor %}
+          </p>
           <p class="card-text"></p>
-          <a href="#" class="btn btn-primary">Подробнее</a>
+          <a href="book/show-book-detail/{{ book4.pk }}" class="btn btn-primary">Подробнее</a>
         </div>
       </div>
     </div>   

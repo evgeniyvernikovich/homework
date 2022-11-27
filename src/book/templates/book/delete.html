@@ -6,8 +6,11 @@
     Delete
 {% block body %}
     <h1>Delete</h1>
-    Pk {{object.pk}}
-    name {{object.name}}<br>
+    Pk {{object.pk}}<br>
+    название - {{object.name}}<br>
+    {% for auth in object.author_book.all %} 
+        автор - {{ auth.name }}
+    {% endfor %}<br>
     <form action="" method="post">
         {% csrf_token %}
         <input type="submit" class='btn btn-success' value="submit">

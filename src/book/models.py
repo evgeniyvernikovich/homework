@@ -15,9 +15,9 @@ class Book(models.Model):
         upload_to = 'covers/%Y/%m/%d/'
     )
     prise = models.FloatField(verbose_name='Стоимость книги')
-    author_book = models.ManyToManyField(Author, related_name="books", verbose_name='Автор(ы) книги')
+    author_book = models.ManyToManyField(Author, related_name="author_books", verbose_name='Автор(ы) книги')
     serie_book = models.ForeignKey(Serie, on_delete = models.CASCADE, verbose_name="Серия книги")
-    genre_book = models.ManyToManyField(Genre, related_name="books", verbose_name='Жанр(ы) книги')
+    genre_book = models.ManyToManyField(Genre, related_name="genre_books", verbose_name='Жанр(ы) книги')
     year_of_publishing = models.DateField(verbose_name='Год издания')
     number_of_pages= models.PositiveSmallIntegerField(verbose_name='Количество страниц')
     binding_book = models.CharField(max_length=60, verbose_name='Переплет')
