@@ -21,7 +21,7 @@
       {% if perms.book.add_book %}
         <a href="{% url 'book:sh-book-delete' pk=object.pk %}" class="btn btn-primary">Del</a>
         <a href="{% url 'book:sh-book-update' pk=object.pk %}" class="btn btn-primary">Update</a>
-      {% endif %}
+{% endif %}
     </div>
 </div>
 
