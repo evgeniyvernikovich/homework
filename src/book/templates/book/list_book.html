@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block body %}
-    <h1>List books</h1>
+    <h1>Каталог</h1>
     <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
 {% for object in object_list %}
 
@@ -17,12 +17,7 @@
         {% for auth in object.author_book.all %} 
           {{ auth.name }}
         {% endfor %}</p>
-      <p class="card-text">Год издания: {{ object.year_of_publishing }}</p>
-      <p class="card-text">Издательство: {{ object.publishing_book }}</p>
-      <p class="card-text">Переплет: {{ object.binding_book }} </p>
-      <p class="card-text">Кол-во страниц: {{ object.number_of_pages }} </p>
-      <p class="card-text">Цена: {{ object.prise }} руб</p>
-      <a href="#" class="btn btn-primary">Заказать</a>
+      <a href="{% url 'book:sh-book-detail' pk=object.pk %}" class="btn btn-primary">Подробнее</a>
       {% if perms.book.add_book %}
         <a href="{% url 'book:sh-book-delete' pk=object.pk %}" class="btn btn-primary">Del</a>
         <a href="{% url 'book:sh-book-update' pk=object.pk %}" class="btn btn-primary">Update</a>

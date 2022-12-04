@@ -28,6 +28,7 @@ urlpatterns = [
     path('refs/', include('reference_books.urls', namespace="reference_books")),
     path('', HomePage.as_view(), name='home-page'),
     path('book/', include('book.urls', namespace='books')),
+    path('orders/', include('orders.urls', namespace='orders')),
 ]
 
 if settings.DEBUG:

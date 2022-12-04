@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'home_page',
     'book',
+    'orders',
+    
     
 ]
 
@@ -128,7 +130,7 @@ STATIC_URL = 'static/'
 STATIC_ROOT = '/home/vernikovich/homework/static'
 
 MEDIA_URL = 'media/'
-#MEDIA_ROOT = BASE_DIR / "media"
+# MEDIA_ROOT = BASE_DIR / "media"
 MEDIA_ROOT = '/home/vernikovich/homework/src/media'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

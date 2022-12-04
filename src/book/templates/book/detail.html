@@ -18,8 +18,13 @@
         <p class="card-text">Издательство: {{ object.publishing_book }}</p>
         <p class="card-text">Переплет: {{ object.binding_book }} </p>
         <p class="card-text">Кол-во страниц: {{ object.number_of_pages }} </p>
-        <p class="card-text">Цена: {{ object.prise }} руб</p>
-        <a href="#" class="btn btn-primary">Заказать</a>
+        <p class="card-text">Цена: {{ object.price }} руб</p>
+        <form action="{% url 'orders:sh-basket' %}" method="post">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-primary">Заказать</button>
+          <input type="number" name="amount" value="1" step="1" min="1">
+          <input type="hidden" name="book_pk" value="{{ object.pk }}">
+        </form>
       </div>
     </div>
     

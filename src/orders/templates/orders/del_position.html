@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Basket
+{% endblock %}
+
+{% block body %}
+
+
+<h1>Вы уверены? Вы точно хотитет удалить {{ object.book.name }}?</h1>        
+<form method="post">
+{% csrf_token %}
+<button type="submit" class="btn btn-danger" btn>DElETE</button>
+</form>
+{% endblock %}   
+
+{% block footer %}
+    footer
+{% endblock %}

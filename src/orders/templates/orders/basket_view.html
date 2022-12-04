@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    Basket
+{% endblock %}
+
+{% block body %}
+<h1>Корзина</h1>
+<table class="table">
+    <tr>
+        <td>Название</td>
+        <td>Количество</td>
+        <td>Стоиомсть за ед</td>
+        <td>Стоимость</td>
+        <td>Удалить</td>
+    </tr>
+
+    {% for book_basket in basket.books.all %}
+    <tr>
+        <td>{{ book_basket.book.name }}</td>
+        <td>{{ book_basket.amount }}</td>
+        <td>{{ book_basket.price }}</td>
+        <td>{{ book_basket.price_total }}</td>
+        <td><a href="{% url 'orders:del-position' book_basket.pk %}" class="btn btn-danger">DEL</a></td>
+    </tr>
+{% endfor %}
+<tr>
+    <td>Итого:</td>
+    <td colspan="2"></td>
+    <td>{{ basket.total_price }}</td>
+</tr>
+</table>
+
+<form action="{% url 'orders:create-order' %}" method="post">
+    {{ form|crispy }}
+    {% csrf_token %}
+    <button type="submit" class="btn btn-success">Создать заказ</button>
+</form>
+
+        
+      
+{% endblock %}   
+
+{% block footer %}
+    footer
+{% endblock %}

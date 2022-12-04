@@ -14,7 +14,10 @@ class Book(models.Model):
         verbose_name='Фото обложки книги',
         upload_to = 'covers/%Y/%m/%d/'
     )
-    prise = models.FloatField(verbose_name='Стоимость книги')
+    price = models.DecimalField(
+        verbose_name='Стоимость книги',
+        max_digits=5,
+        decimal_places=2)
     author_book = models.ManyToManyField(Author, related_name="author_books", verbose_name='Автор(ы) книги')
     serie_book = models.ForeignKey(Serie, on_delete = models.CASCADE, verbose_name="Серия книги")
     genre_book = models.ManyToManyField(Genre, related_name="genre_books", verbose_name='Жанр(ы) книги')
