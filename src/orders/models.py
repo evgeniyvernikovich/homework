@@ -75,8 +75,29 @@ class Order(models.Model):
         on_delete=models.PROTECT
     )
     contact_user = models.TextField(
-        verbose_name="Контактная информация"
+        verbose_name="Дополнительная информация"
     )
+    name_user = models.CharField(
+        max_length=50,
+        verbose_name='Имя пользвователя'
+    )
+    surname_user = models.CharField(
+        max_length=50,
+        verbose_name='Фамилия пользвователя'
+    )
+    email_user = models.EmailField(
+        max_length=40,
+        verbose_name = "Электронная почта"
+    )
+    phone_user = models.CharField(
+        max_length=20,
+        verbose_name='Телефон пользвователя'
+    )
+    adress_user = models.CharField(
+        max_length=200,
+        verbose_name="Адрес"
+    )
+
     created_date = models.DateTimeField(
         'Created date',
         auto_now=False,

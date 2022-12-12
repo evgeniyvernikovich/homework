@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Book orders
+{% endblock %}
+
+{% block body %}
+    <h1>Book orders</h1>
+    <table class="table table-striped-columns">
+        {% for obj in object_list %}
+        <tr>
+            
+            <td>{{ obj.basket }}</td>
+            <td>{{ obj.book }}</td>
+            <td>{{ obj.amount }}</td>
+            <td>{{ obj.price }}</td>
+            
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}   
+
+{% block footer %}
+    footer
+{% endblock %}

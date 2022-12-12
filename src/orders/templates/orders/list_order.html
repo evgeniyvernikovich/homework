@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    List orders
+{% endblock %}
+
+{% block body %}
+    <h1>List orders</h1>
+    <table class="table table-striped-columns">
+        {% for obj in object_list %}
+        <tr>
+            
+            <td><a href="{% url 'orders:book-basket'  %}"  >{{ obj.basket }}</a></td>
+            <td>{{ obj.status }}</td>
+            <td>{{ obj.created_date }}</td>
+            
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}   
+
+{% block footer %}
+    footer
+{% endblock %}

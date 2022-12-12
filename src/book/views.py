@@ -43,5 +43,16 @@ class ShowBook(generic.DetailView):
 class ShowBooks(generic.ListView):
     model = models.Book
     template_name = 'book/list_book.html' 
+
+class Search(generic.ListView):
+    template_name = 'book/list_book.html'
+    context_object_name = 'books'
+
+    def get_queryset(self):
+        return models.Book.objects.filter(name__icontains=self.request.GET.get('q'))
     
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['q'] = self.request.GET.get('q')
+        return context
 

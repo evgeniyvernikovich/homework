@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from . import models, forms
 from book import models as book_models
-from django.views.generic import DeleteView, CreateView, TemplateView
+from django.views.generic import DeleteView, CreateView, TemplateView, ListView
 from django.urls import reverse_lazy
 
 # Create your views here.
@@ -77,3 +77,12 @@ class Order(CreateView):
 
 class OrderSuccsses(TemplateView):
     template_name = 'orders/success_order.html'
+
+class OrderManager(ListView):
+    model = models.Order
+    template_name = 'orders/list_order.html'
+
+class BasketMeneger(ListView):
+    model = models.BookBasket
+    template_name = 'orders/book_basket.html'
+    
